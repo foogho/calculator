@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 
-import './App.css';
+import './App.scss';
 import Calculator from './components/calculator';
 import { store } from './redux/main';
 
