@@ -5,7 +5,7 @@
 @import '~bootstrap/scss/functions';
 
 // 2. Include any default variable overrides here
-
+$enable_shadow : true;
 // 3. Include remainder of required Bootstrap stylesheets
 @import '~bootstrap/scss/variables';
 
@@ -30,3 +30,5 @@
 
 // 8. Add additional custom code here
 
+@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/card';

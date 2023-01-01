@@ -1,0 +1,14 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+Button {
+  width: 100%;
+}
+
+#keyboard-wrapper {
+  background-color: $gray-200;
+}
+
+#display *{
+  margin : 0;
+}

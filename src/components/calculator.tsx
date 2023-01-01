@@ -1,24 +1,27 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 
-import { addToExpression, expression, state } from '../redux/main';
+import './calculator.scss';
+import Display from './display';
+import Keyboard from './keyboard';
 
-class Presentational extends React.Component {
+export default class Calculator extends React.Component {
   render(): React.ReactNode {
-    return <p>hello from calculator component</p>;
+    return (
+      <Card bg="light" className="rounded-4">
+        <Card.Body className="p-0">
+          <Container>
+            <Row xs={1}>
+              <Col>
+                <Display />
+              </Col>
+              <Col className='rounded-4 p-3' id='keyboard-wrapper'>
+                <Keyboard />
+              </Col>
+            </Row>
+          </Container>
+        </Card.Body>
+      </Card>
+    );
   }
 }
-const mapStateToProps = (state: state) => {
-  return {
-    expression: state.expression,
-  };
-};
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    addNewExpression: (phrase: expression[0]) => {
-      dispatch(addToExpression(phrase));
-    },
-  };
-};
-const Calculator = connect(mapStateToProps, mapDispatchToProps)(Presentational);
-export default Calculator;
