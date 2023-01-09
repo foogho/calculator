@@ -9,17 +9,17 @@ class Presentational extends React.Component<any> {
     const expression = this.props.expression;
     const lastPhrase = expression[expression.length - 1];
     return (
-      <div id="display" className="p-5 position-relative">
+      <div className="p-5 position-relative">
         <Stack
           direction="vertical"
           className="position-absolute end-0 bottom-0 p-2 text-end"
         >
-          <p>
+          <p className='m-0'>
             {expression.map((phrase: string, i: number) => (
               <span key={i}>{phrase}</span>
             ))}
           </p>
-          <h3>{lastPhrase || 0}</h3>
+          <h3 id="display">{lastPhrase || 0}</h3>
         </Stack>
       </div>
     );
