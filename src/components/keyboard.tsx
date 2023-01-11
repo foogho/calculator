@@ -46,7 +46,7 @@ class Presentational extends React.Component<any> {
     if (!lastPhrase && number === '0') {
       return;
     }
-    if (lastPhrase && !Number.isNaN(Number.parseInt(lastPhrase))) {
+    if (lastPhrase && !isNaN(lastPhrase)) {
       this.props.updateLastPhrase(lastPhrase + number);
     } else {
       this.props.addPhraseToExpression(number);
@@ -58,7 +58,7 @@ class Presentational extends React.Component<any> {
     const oneToTheLastPhrase = expression[expression.length - 2];
     if (operator === '-') {
       if (lastPhrase === '-') {
-        if (!Number.isNaN(Number.parseInt(oneToTheLastPhrase))) {
+        if (!isNaN(oneToTheLastPhrase)) {
           return this.props.addPhraseToExpression(operator);
         }
       } else {
@@ -68,8 +68,8 @@ class Presentational extends React.Component<any> {
       if (!lastPhrase) {
         return;
       }
-      if (Number.isNaN(Number.parseInt(lastPhrase))) {
-        if (Number.isNaN(Number.parseInt(oneToTheLastPhrase))) {
+      if (isNaN(lastPhrase)) {
+        if (isNaN(oneToTheLastPhrase)) {
           this.props.deleteLastPhrase();
         }
         return this.props.updateLastPhrase(operator);
@@ -80,7 +80,7 @@ class Presentational extends React.Component<any> {
   onDecimalClicked() {
     const expression = this.props.expression;
     const lastPhrase: string = expression[expression.length - 1];
-    if (!Number.isNaN(Number.parseInt(lastPhrase))) {
+    if (!isNaN(lastPhrase as any)) {
       if (lastPhrase.includes('.')) {
         return;
       }
